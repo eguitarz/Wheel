@@ -1,0 +1,136 @@
+$diameter: 400px;
+$button-size: 64px;
+$highlight: #aabcde;
+$selected: #eeffee;
+
+$purple: #aa88ef;
+$blue: #2277de;
+$pink: #e3a4a6;
+$yellow: #aaaa23;
+$green: #aaefaa;
+
+$fast: 100ms;
+$medium: 300ms;
+$slow: 800ms;
+
+body {
+	-webkit-transition: background-color $fast;
+}
+
+nav {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -$diameter/2;
+	margin-left: -$diameter/2;
+	width: $diameter;
+	height: $diameter;
+	border-radius: 100%;
+}
+
+@mixin hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+@mixin button {
+	width: $button-size;
+	height: $button-size;
+	width: $button-size;
+	height: $button-size;
+	text-align: center;
+	line-height: $button-size;
+	border-radius: 100%;
+	border: 2px solid black;
+	cursor: pointer;
+	-webkit-transition: -webkit-transform $fast;
+
+	&:hover {
+		border-color: $highlight;
+	}
+
+	&.hide {
+		@include hide;
+	}
+
+	&.selected {
+		background-color: $selected;
+	}
+}
+
+#menu-indicator {
+	position: absolute;
+	left: $button-size/2;
+	top: $button-size/2;
+}
+
+#home {
+	-webkit-transition: opacity $slow;
+
+	&.hide {
+		@include hide;
+	}
+}
+
+.logo {
+	display: inline-block;
+	@include button;
+}
+
+#current-menu {
+	display: inline-block;
+	height: $button-size;
+	line-height: $button-size;
+	padding: 0 20px;
+	font-size: 2em;
+	vertical-align: middle;
+}
+
+nav > .item {
+	position: absolute;
+	-webkit-transform-origin: $button-size/2 $diameter/2;
+	-webkit-transition: rotate(0);
+	left: $diameter/2 - $button-size / 2;
+	top: 0;
+	-webkit-transition: -webkit-transform $slow, margin $slow, left $slow, top $slow, opacity $slow;
+
+	&.hide {
+		@include hide;
+	}
+}
+
+.circle {
+	@include button;
+}
+
+.circle span {
+	-webkit-transition: -webkit-transform $slow;
+}
+
+
+$color-list: $purple, $blue, $yellow, $pink, $green;
+@for $i from 2 through 6 {
+	nav > .item:nth-child(#{$i}) .circle {
+		$j: $i - 1;
+		background-color: nth($color-list, $j);
+	}
+}
+
+nav > .display {
+	position: absolute;
+	left: $diameter/2 - $diameter/4;
+	top: $diameter/2 - $diameter/4;
+	width: $diameter/2;
+	height: $diameter/2;
+	line-height: $diameter/2;
+	text-align: center;
+	font-size: 1.5em;
+
+	&.hide {
+		@include hide;
+	}
+}
+
+nav span {
+	display: block;
+}

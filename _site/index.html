@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <section id="menu-indicator">
+            <div id="home" class="logo hide">Home</div>
+            <div id="current-menu"></div>
+        </section>
+        <nav>
+            <div class="display"></div>
+            <div class="item" data-name="Portfolio">
+                <div class="circle"><span>Po</span></div>
+            </div>
+            <div class="item" data-name="Photos">
+                <div class="circle"><span>Ph</span></div>
+            </div>
+            <div class="item" data-name="Articles">
+                <div class="circle"><span>Ar</span></div>
+            </div>
+            <div class="item" data-name="About">
+                <div class="circle"><span>Ab</span></div>
+            </div>
+            <div class="item" data-name="Contact">
+                <div class="circle"><span>Co</span></div>
+            </div>
+        </nav>
+
+        <div id="content"></div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/wheel.js"></script>
+    </body>
+</html>
